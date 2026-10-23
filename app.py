@@ -25,220 +25,195 @@ st.markdown(
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 
     :root {
-        --ink: #20224a;
-        --muted: #666b91;
-        --purple: #7257e8;
-        --blue: #3289e8;
-        --teal: #11a99a;
-        --pink: #e45ba6;
-        --gold: #e6a23c;
-        --panel: rgba(255,255,255,0.78);
-        --line: rgba(107, 95, 190, 0.18);
+        --ink: #183532;
+        --muted: #617873;
+        --teal: #087f72;
+        --teal-dark: #075e54;
+        --mint: #bce8d9;
+        --coral: #e78a67;
+        --gold: #d7a84b;
+        --panel: #ffffff;
+        --line: #dce9e3;
+        --canvas: #f4f7f2;
     }
-
-    html, body, [class*="css"] {
-        font-family: 'DM Sans', sans-serif;
-        color: var(--ink);
-    }
-
+    html, body, [class*="css"] { font-family: 'DM Sans', sans-serif; color: var(--ink); }
     .stApp {
         background:
-            radial-gradient(ellipse at 8% 4%, rgba(92, 222, 210, 0.44), transparent 29%),
-            radial-gradient(ellipse at 91% 7%, rgba(176, 142, 255, 0.42), transparent 30%),
-            radial-gradient(ellipse at 78% 80%, rgba(255, 190, 218, 0.30), transparent 31%),
-            linear-gradient(135deg, #edfafa 0%, #f1efff 48%, #fff0f6 100%);
+          radial-gradient(circle at 92% 2%, rgba(188,232,217,.30), transparent 24rem),
+          linear-gradient(145deg, #f7f8f3 0%, #f1f6f1 55%, #f8f7f1 100%);
         background-attachment: fixed;
     }
-
-    [data-testid="stHeader"] {
-        background: rgba(239, 244, 255, 0.55);
-    }
-
+    [data-testid="stHeader"] { background: rgba(247,248,243,.94); }
     [data-testid="stSidebar"] {
-        background: linear-gradient(165deg, #e0faf5 0%, #e7e4ff 55%, #fce8f4 100%);
-        border-right: 1px solid rgba(107, 95, 190, 0.18);
+        background: linear-gradient(180deg, #123d39 0%, #174a43 58%, #103832 100%);
+        border-right: 1px solid #d2e3da;
     }
-    [data-testid="stSidebar"] > div:first-child { padding-top: 1.3rem; }
-
-    h1, h2, h3 {
-        font-family: 'Manrope', sans-serif !important;
-        color: #272451 !important;
-        letter-spacing: -0.035em;
+    [data-testid="stSidebar"] > div:first-child { padding-top: 1.1rem; }
+    [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p,
+    [data-testid="stSidebar"] label,
+    [data-testid="stSidebar"] .stCaption { color: #e0f0e8 !important; }
+    [data-testid="stSidebar"] [data-testid="stFileUploader"] {
+        background: rgba(255,255,255,.08); border-color: #80b9a7;
     }
+    [data-testid="stSidebar"] div[data-baseweb="select"] > div,
+    [data-testid="stSidebar"] div[data-baseweb="input"] > div { background: #f9fcf8; }
+    h1, h2, h3 { font-family: 'Manrope', sans-serif !important; color: #183532 !important; letter-spacing: -0.035em; }
     h1 { font-weight: 800 !important; }
     h2, h3 { font-weight: 750 !important; }
-
-    p, label, .stMarkdown, [data-testid="stCaptionContainer"] {
-        color: #35375f;
-    }
-
+    p, label, .stMarkdown, [data-testid="stCaptionContainer"] { color: #405d56; }
     .hero {
-        padding: 30px 32px;
-        border-radius: 28px;
-        margin: 2px 0 24px 0;
-        color: white;
-        background: linear-gradient(120deg, #4f46c9 0%, #7257e8 42%, #298bcf 76%, #12a99b 100%);
-        box-shadow: 0 18px 44px rgba(86, 75, 190, 0.22);
-        position: relative;
-        overflow: hidden;
+        padding: 29px 32px; border-radius: 23px; margin: 2px 0 22px 0; color: white;
+        background: linear-gradient(115deg, #123d39 0%, #087f72 58%, #43a58e 100%);
+        box-shadow: 0 14px 32px rgba(14,75,64,.15); position: relative; overflow: hidden;
     }
-    .hero:after {
-        content: "✦";
-        position: absolute;
-        right: 35px;
-        top: 8px;
-        font-size: 105px;
-        opacity: 0.16;
-        color: white;
-    }
-    .hero h1 { color: white !important; margin: 0 0 8px 0; font-size: clamp(2rem, 3.5vw, 3.15rem); }
-    .hero p { color: rgba(255,255,255,0.90) !important; margin: 0; font-size: 1.04rem; }
-    .hero-tag {
-        display: inline-block;
-        font-size: 0.75rem;
-        font-weight: 800;
-        letter-spacing: 0.11em;
-        text-transform: uppercase;
-        color: #f1fffe;
-        background: rgba(255,255,255,0.16);
-        border: 1px solid rgba(255,255,255,0.28);
-        padding: 6px 11px;
-        border-radius: 100px;
-        margin-bottom: 13px;
-    }
-
-    .section-heading {
-        display: flex;
-        align-items: center;
-        gap: 11px;
-        margin: 25px 0 12px 0;
-        font-family: 'Manrope', sans-serif;
-        font-weight: 800;
-        font-size: 1.45rem;
-        color: #292651;
-    }
-    .section-heading .bubble {
-        display: inline-flex;
-        width: 37px;
-        height: 37px;
-        align-items: center;
-        justify-content: center;
+    .hero:after { content: "✳"; position: absolute; right: 34px; top: 0px; font-size: 104px; opacity: 0.12; color: white; }
+    .hero h1 { color: white !important; margin: 0 0 8px 0; font-size: clamp(2rem, 3.5vw, 3.05rem); }
+    .hero p { color: rgba(255,255,255,0.91) !important; margin: 0; font-size: 1.02rem; }
+    .hero-tag { display: inline-block; font-size: .72rem; font-weight: 800; letter-spacing: .11em; text-transform: uppercase;
+        color: #f1fff7; background: rgba(255,255,255,.13); border: 1px solid rgba(255,255,255,.25);
+        padding: 6px 11px; border-radius: 100px; margin-bottom: 12px; }
+    .section-heading { display:flex; align-items:center; gap:11px; margin:26px 0 13px 0;
+        font-family:'Manrope',sans-serif; font-weight:800; font-size:1.35rem; color:#183532; }
+    .section-heading .bubble { display:inline-flex; width:37px; height:37px; align-items:center; justify-content:center;
+        border-radius:12px; color:white; background:linear-gradient(135deg,#087f72,#43a58e); box-shadow:0 5px 13px rgba(8,127,114,.18); }
+    .kpi { border-radius:18px; padding:19px 20px 17px; min-height:130px; border:1px solid #dce9e3;
+        box-shadow:0 7px 20px rgba(27,67,54,.055); background:rgba(255,255,255,.96); position:relative; overflow:hidden;
+        transition:transform .18s ease, box-shadow .18s ease; }
+    .kpi:hover { transform:translateY(-2px); box-shadow:0 11px 24px rgba(27,67,54,.09); }
+    .kpi:after { content:""; position:absolute; width:88px; height:88px; border-radius:50%; right:-25px; top:-25px; background:var(--accent); opacity:.12; }
+    .kpi-label { font-size:.79rem; font-weight:800; letter-spacing:.045em; color:#617873; margin-bottom:10px; }
+    .kpi-value { font-family:'Manrope',sans-serif; font-size:clamp(1.5rem,2.2vw,2.1rem); font-weight:800;
+        letter-spacing:-.04em; line-height:1.12; color:var(--accent); }
+    .kpi-foot { font-size:.75rem; color:#728780; margin-top:9px; }
+    .glass-note { padding:14px 17px; border-radius:15px; background:rgba(255,255,255,.96); color:#183532 !important; border:1px solid #dce9e3; box-shadow:0 4px 13px rgba(27,67,54,.04); }
+    .glass-note b, .glass-note strong, .glass-note span { color:inherit !important; }
+    [data-testid="stMetric"] { background:rgba(255,255,255,.96); border:1px solid #dce9e3; padding:14px 16px; border-radius:15px; box-shadow:0 4px 13px rgba(27,67,54,.04); }
+    [data-testid="stMetricLabel"] { color:#617873 !important; }
+    [data-testid="stMetricValue"] { color:#183532 !important; }
+    div[data-testid="stTabs"] button { border-radius:10px 10px 0 0; font-weight:700; }
+    div[data-testid="stTabs"] button[aria-selected="true"] { color:#087f72; border-bottom-color:#087f72; }
+    /* Consistent action buttons: readable labels, visible icons, accessible focus state. */
+    .stButton > button, .stDownloadButton > button, [data-testid="stFileUploader"] button {
+        min-height: 2.75rem;
         border-radius: 12px;
-        color: white;
-        background: linear-gradient(135deg, #7257e8, #3289e8);
-        box-shadow: 0 5px 14px rgba(94, 81, 202, 0.20);
+        border: 1px solid #087f72;
+        color: #ffffff !important;
+        font-weight: 750;
+        letter-spacing: .005em;
+        background: linear-gradient(135deg, #087f72 0%, #0a6d62 100%);
+        box-shadow: 0 5px 14px rgba(8,127,114,.16);
+        transition: transform .16s ease, background .16s ease, box-shadow .16s ease;
     }
-
-    .kpi {
-        border-radius: 20px;
-        padding: 19px 19px 17px 19px;
-        min-height: 133px;
-        border: 1px solid rgba(255,255,255,0.92);
-        box-shadow: 0 9px 24px rgba(67, 65, 135, 0.09);
-        background: rgba(255,255,255,0.76);
-        backdrop-filter: blur(14px);
-        position: relative;
-        overflow: hidden;
-    }
-    .kpi:after {
-        content: "";
-        position: absolute;
-        width: 85px;
-        height: 85px;
-        border-radius: 50%;
-        right: -24px;
-        top: -24px;
-        background: var(--accent);
-        opacity: 0.13;
-    }
-    .kpi-label {
-        font-size: 0.83rem;
-        font-weight: 700;
-        color: #62678d;
-        margin-bottom: 10px;
-    }
-    .kpi-value {
-        font-family: 'Manrope', sans-serif;
-        font-size: clamp(1.55rem, 2.2vw, 2.2rem);
-        font-weight: 800;
-        letter-spacing: -0.04em;
-        line-height: 1.12;
-        color: var(--accent);
-    }
-    .kpi-foot { font-size: 0.75rem; color: #7c80a1; margin-top: 9px; }
-
-    .glass-note {
-        padding: 15px 18px;
-        border-radius: 16px;
-        background: rgba(255,255,255,0.68);
-        border: 1px solid rgba(255,255,255,0.9);
-        box-shadow: 0 7px 20px rgba(67,65,135,0.06);
-    }
-
-    [data-testid="stMetric"] {
-        background: rgba(255,255,255,0.72);
-        border: 1px solid rgba(255,255,255,0.9);
-        padding: 14px 17px;
-        border-radius: 16px;
-        box-shadow: 0 7px 20px rgba(67,65,135,0.06);
-    }
-    [data-testid="stMetricLabel"] { color: #65698e !important; }
-    [data-testid="stMetricValue"] { color: #292651 !important; }
-
-    div[data-testid="stTabs"] button {
-        border-radius: 12px 12px 0 0;
-        font-weight: 700;
-    }
-    div[data-testid="stTabs"] button[aria-selected="true"] {
-        color: #5d4ad3;
-        border-bottom-color: #7257e8;
-    }
-
-    .stButton > button, .stDownloadButton > button {
-        border-radius: 12px;
-        border: 0;
-        color: white;
-        font-weight: 700;
-        background: linear-gradient(100deg, #6955df, #3689e7);
-        box-shadow: 0 6px 16px rgba(94, 81, 202, 0.18);
-        transition: transform .15s ease, box-shadow .15s ease;
+    .stButton > button p, .stDownloadButton > button p,
+    .stButton > button span, .stDownloadButton > button span {
+        color: #ffffff !important;
+        font-weight: 750;
     }
     .stButton > button:hover, .stDownloadButton > button:hover {
-        color: white;
-        transform: translateY(-1px);
-        box-shadow: 0 9px 20px rgba(94, 81, 202, 0.27);
+        color: #ffffff !important;
+        background: linear-gradient(135deg, #075e54 0%, #064b44 100%);
+        border-color: #075e54;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 18px rgba(8,95,83,.22);
     }
-
+    .stButton > button:focus-visible, .stDownloadButton > button:focus-visible {
+        outline: 3px solid #e78a67 !important;
+        outline-offset: 3px;
+    }
+    .stDownloadButton [data-testid="stMarkdownContainer"] p { margin: 0; }
+    .stDownloadButton svg, .stButton svg { color: #ffffff !important; fill: currentColor; }
     [data-testid="stFileUploader"] {
-        background: rgba(255,255,255,0.58);
-        border: 1.5px dashed rgba(104, 85, 218, 0.42);
+        background: rgba(255,255,255,.92);
+        border: 1.5px dashed #63a997;
         padding: 10px;
-        border-radius: 18px;
+        border-radius: 15px;
     }
-    [data-testid="stDataFrame"], [data-testid="stTable"] {
-        border-radius: 14px;
-        overflow: hidden;
-    }
-    div[data-baseweb="select"] > div,
-    div[data-baseweb="input"] > div,
-    div[data-baseweb="textarea"] > div {
+    [data-testid="stFileUploader"] section {
         border-radius: 11px;
-        background-color: rgba(255,255,255,0.82);
+        background: rgba(8,127,114,.045);
     }
-    [data-testid="stExpander"] {
-        border-radius: 14px;
-        border-color: rgba(107,95,190,0.20);
-        background: rgba(255,255,255,0.50);
+    [data-testid="stFileUploader"] section button {
+        background: #ffffff !important;
+        color: #075e54 !important;
+        border: 1px solid #087f72 !important;
+        box-shadow: none !important;
     }
-    hr { border-color: rgba(107,95,190,0.16); }
-    .small-muted { color: #737798; font-size: 0.84rem; }
-    .footer {
-        margin-top: 34px;
-        padding: 18px;
-        text-align: center;
-        color: #696d91;
-        font-size: 0.82rem;
-        border-top: 1px solid rgba(107,95,190,0.16);
+    [data-testid="stFileUploader"] section button p,
+    [data-testid="stFileUploader"] section button span { color: #075e54 !important; }
+    .action-card {
+        display:flex; align-items:center; gap:13px; min-height:78px;
+        padding:14px 15px; margin-bottom:9px; border-radius:15px;
+        border:1px solid #dce9e3; background:#ffffff;
+        box-shadow:0 5px 16px rgba(27,67,54,.045);
+    }
+    .action-icon {
+        display:flex; flex:0 0 42px; width:42px; height:42px;
+        align-items:center; justify-content:center; border-radius:13px;
+        color:#075e54; background:#e1f4ed; font-size:21px;
+    }
+    .action-title { color:#183532; font-weight:800; font-size:.95rem; line-height:1.25; }
+    .action-description { color:#617873; font-size:.78rem; line-height:1.4; margin-top:4px; }
+    .sidebar-guide-icon {
+        display:inline-flex; width:31px; height:31px; align-items:center; justify-content:center;
+        border-radius:10px; background:rgba(188,232,217,.13); margin-right:8px;
+        font-size:16px; vertical-align:middle;
+    }
+    [data-testid="stFileUploader"] { background:rgba(255,255,255,.78); border:1.5px dashed #8bbdad; padding:10px; border-radius:15px; }
+    [data-testid="stDataFrame"], [data-testid="stTable"] { border-radius:12px; overflow:hidden; }
+    div[data-baseweb="select"] > div, div[data-baseweb="input"] > div, div[data-baseweb="textarea"] > div { border-radius:10px; background:#fff; }
+    [data-testid="stExpander"] { border-radius:13px; border-color:#dce9e3; background:rgba(255,255,255,.78); }
+    hr { border-color:#dce9e3; }
+    .small-muted { color:#617873; font-size:.84rem; }
+    .footer { margin-top:32px; padding:18px; text-align:center; color:#617873; font-size:.82rem; border-top:1px solid #dce9e3; }
+
+    /* SIDEBAR CONTRAST FIX: Streamlit headings inherit the main canvas color by default.
+       Explicitly style every common text element so no sidebar text disappears on dark teal. */
+    [data-testid="stSidebar"] { color:#f3fff9 !important; }
+    [data-testid="stSidebar"] h1,
+    [data-testid="stSidebar"] h2,
+    [data-testid="stSidebar"] h3,
+    [data-testid="stSidebar"] h4,
+    [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h1,
+    [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h2,
+    [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h3,
+    [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h4 { color:#f3fff9 !important; }
+    [data-testid="stSidebar"] p,
+    [data-testid="stSidebar"] span,
+    [data-testid="stSidebar"] label,
+    [data-testid="stSidebar"] li,
+    [data-testid="stSidebar"] small,
+    [data-testid="stSidebar"] strong,
+    [data-testid="stSidebar"] b,
+    [data-testid="stSidebar"] [data-testid="stCaptionContainer"],
+    [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] { color:#e0f0e8 !important; }
+    [data-testid="stSidebar"] .glass-note,
+    [data-testid="stSidebar"] .glass-note b,
+    [data-testid="stSidebar"] .glass-note strong,
+    [data-testid="stSidebar"] .glass-note span { color:#183532 !important; }
+    [data-testid="stSidebar"] [data-testid="stFileUploader"] section,
+    [data-testid="stSidebar"] [data-testid="stFileUploader"] small,
+    [data-testid="stSidebar"] [data-testid="stFileUploader"] button,
+    [data-testid="stSidebar"] [data-testid="stFileUploader"] [data-testid="stMarkdownContainer"] { color:#f3fff9 !important; }
+    [data-testid="stSidebar"] [data-testid="stFileUploader"] button { border-color:#8bcab7 !important; }
+    [data-testid="stSidebar"] [data-testid="stFileUploader"] section { background:rgba(255,255,255,.06); }
+    [data-testid="stSidebar"] hr { border-color:rgba(224,240,232,.28) !important; }
+    [data-testid="stSidebar"] [data-testid="stAlert"] { color:#183532 !important; }
+    [data-testid="stSidebar"] [data-testid="stAlert"] p,
+    [data-testid="stSidebar"] [data-testid="stAlert"] span { color:#183532 !important; }
+    [data-testid="stSidebar"] div[data-baseweb="select"] *,
+    [data-testid="stSidebar"] div[data-baseweb="input"] * { color:#183532; }
+    /* Keep the dashboard guide readable even if Streamlit theme defaults change. */
+    .sidebar-guide { display:grid; gap:11px; font-size:.88rem; color:#e0f0e8; }
+    .sidebar-guide-item { padding:8px 10px; border:1px solid rgba(224,240,232,.16); border-radius:11px; background:rgba(255,255,255,.055); }
+    .sidebar-guide-title { color:#ffffff !important; font-weight:750; }
+    .sidebar-guide-desc { color:#c8e8dc !important; font-size:.76rem; line-height:1.4; }
+    /* Sidebar uploader's Browse/Clear buttons need dark text on their white surface. */
+    [data-testid="stSidebar"] [data-testid="stFileUploader"] section button {
+        background:#ffffff !important; color:#075e54 !important; border-color:#8bcab7 !important;
+    }
+    [data-testid="stSidebar"] [data-testid="stFileUploader"] section button p,
+    [data-testid="stSidebar"] [data-testid="stFileUploader"] section button span {
+        color:#075e54 !important;
     }
     </style>
     """,
@@ -419,18 +394,21 @@ with st.sidebar:
     st.markdown(
         """
         <div style="padding:8px 3px 17px 3px">
-            <div style="font-size:2.4rem">✨</div>
-            <div style="font-family:Manrope,sans-serif;font-size:1.55rem;font-weight:850;color:#30285f">InsightAI</div>
-            <div style="color:#67658f;font-size:.86rem">Your data, made clearer.</div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <div style="display:flex;align-items:center;justify-content:center;width:43px;height:43px;border-radius:14px;background:#087f72;color:#fff;font-size:23px">✦</div>
+              <div><div style="font-family:Manrope,sans-serif;font-size:1.45rem;font-weight:850;color:#f3fff9">InsightAI</div>
+              <div style="color:#c8e8dc;font-size:.78rem;letter-spacing:.08em">DATA INTELLIGENCE</div></div>
+            </div>
         </div>
         """,
         unsafe_allow_html=True,
     )
     st.markdown("---")
-    st.markdown("### 🧭 Dashboard Controls")
-    st.caption("Upload a dataset to begin exploring.")
+    st.markdown("### 🧭 Workspace")
+    st.caption("Start by importing a dataset.")
+    st.markdown('<div class="action-card"><div class="action-icon">📤</div><div><div class="action-title">Upload dataset</div><div class="action-description">CSV, Excel, or JSON · up to 200 MB</div></div></div>', unsafe_allow_html=True)
     uploaded_file = st.file_uploader(
-        "Upload your dataset",
+        "Choose a file",
         type=["csv", "xlsx", "xls", "json"],
         help="Supported formats: CSV, Excel, and JSON.",
     )
@@ -444,8 +422,16 @@ with st.sidebar:
         unsafe_allow_html=True,
     )
     st.markdown("")
-    st.markdown("### 🎨 Dashboard guide")
-    st.caption("① Overview  ·  ② Clean  ·  ③ Filter  ·  ④ Visualize  ·  ⑤ Insights  ·  ⑥ Export")
+    st.markdown("### 🗺️ Dashboard guide")
+    st.markdown("""
+    <div class="sidebar-guide">
+      <div class="sidebar-guide-item"><span class="sidebar-guide-icon">📊</span><span class="sidebar-guide-title">Overview</span><br><span class="sidebar-guide-desc">Dataset summary and preview</span></div>
+      <div class="sidebar-guide-item"><span class="sidebar-guide-icon">🧹</span><span class="sidebar-guide-title">Clean data</span><br><span class="sidebar-guide-desc">Duplicates and missing values</span></div>
+      <div class="sidebar-guide-item"><span class="sidebar-guide-icon">🔎</span><span class="sidebar-guide-title">Explore</span><br><span class="sidebar-guide-desc">Filters and visualizations</span></div>
+      <div class="sidebar-guide-item"><span class="sidebar-guide-icon">💡</span><span class="sidebar-guide-title">Insights</span><br><span class="sidebar-guide-desc">Statistics and correlations</span></div>
+      <div class="sidebar-guide-item"><span class="sidebar-guide-icon">📤</span><span class="sidebar-guide-title">Export & download</span><br><span class="sidebar-guide-desc">Cleaned data and reports</span></div>
+    </div>
+    """, unsafe_allow_html=True)
 
 
 # ----------------------------- LOAD DATA -----------------------------
@@ -467,7 +453,7 @@ else:
     st.info("Showing sample data. Upload your own CSV, Excel, or JSON file using the sidebar to begin.")
     sample_csv = df_original.to_csv(index=False).encode("utf-8")
     st.download_button(
-        "⬇️ Download sample dataset",
+        "📥  Download sample dataset",
         data=sample_csv,
         file_name="InsightAI_Sample_Data.csv",
         mime="text/csv",
@@ -516,13 +502,13 @@ duplicates_original = int(df_original.duplicated().sum())
 
 k1, k2, k3, k4 = st.columns(4, gap="medium")
 with k1:
-    kpi_card("TOTAL ROWS", f"{total_rows:,}", "Records in your dataset", "#7257e8")
+    kpi_card("TOTAL ROWS", f"{total_rows:,}", "Records in your dataset", "#087f72")
 with k2:
-    kpi_card("TOTAL COLUMNS", f"{total_cols:,}", "Available data fields", "#2388df")
+    kpi_card("TOTAL COLUMNS", f"{total_cols:,}", "Available data fields", "#346c83")
 with k3:
-    kpi_card("MISSING CELLS", f"{missing_original:,}", "Empty values detected", "#df5b9f")
+    kpi_card("MISSING CELLS", f"{missing_original:,}", "Empty values detected", "#e78a67")
 with k4:
-    kpi_card("DUPLICATE ROWS", f"{duplicates_original:,}", "Repeated full records", "#0d9e8f")
+    kpi_card("DUPLICATE ROWS", f"{duplicates_original:,}", "Repeated full records", "#d7a84b")
 
 tab_preview, tab_columns, tab_stats = st.tabs(
     ["🧾 Data Preview", "🧬 Column Information", "📈 Descriptive Statistics"]
@@ -677,7 +663,7 @@ else:
         default_y = numeric_cols[1] if len(numeric_cols) > 1 else (numeric_cols[0] if numeric_cols else all_cols[0])
         y_col = st.selectbox("Y-axis / Value", all_cols, index=all_cols.index(default_y))
 
-    palette = ["#7257E8", "#3289E8", "#11A99A", "#E45BA6", "#F0AE42", "#7A9E35", "#EF725B", "#4ECDC4"]
+    palette = ["#087F72", "#43A58E", "#E78A67", "#D7A84B", "#346C83", "#8BBEAA", "#C76F52", "#6F9E9A"]
     fig = None
 
     try:
@@ -690,7 +676,7 @@ else:
                     corr,
                     text_auto=".2f",
                     aspect="auto",
-                    color_continuous_scale=["#fce7f3", "#c4b5fd", "#6366f1", "#164e9a"],
+                    color_continuous_scale=["#e0f2e9", "#8bcab2", "#279783", "#123d39"],
                     title="How numeric variables move together",
                 )
         elif chart_type == "Histogram":
@@ -709,7 +695,7 @@ else:
             if pd.api.types.is_numeric_dtype(df_filtered[x_col]):
                 bar_data = df_filtered.groupby(x_col, dropna=False)[y_col].mean(numeric_only=True).reset_index() if pd.api.types.is_numeric_dtype(df_filtered[y_col]) else None
                 if bar_data is not None:
-                    fig = px.bar(bar_data.head(60), x=x_col, y=y_col, color=y_col, color_continuous_scale="Purples",
+                    fig = px.bar(bar_data.head(60), x=x_col, y=y_col, color=y_col, color_continuous_scale=["#e0f2e9", "#8bcab2", "#279783", "#123d39"],
                                  title=f"Average {y_col} by {x_col}")
                 else:
                     fig = px.histogram(df_filtered, x=x_col, color_discrete_sequence=palette, title=f"Count by {x_col}")
@@ -720,7 +706,7 @@ else:
             else:
                 bar_data = df_filtered[x_col].astype(str).value_counts().head(30).reset_index()
                 bar_data.columns = [x_col, "Count"]
-                fig = px.bar(bar_data, x=x_col, y="Count", color="Count", color_continuous_scale="Purples",
+                fig = px.bar(bar_data, x=x_col, y="Count", color="Count", color_continuous_scale=["#e0f2e9", "#8bcab2", "#279783", "#123d39"],
                              title=f"Record count by {x_col}")
         elif chart_type == "Scatter Plot":
             if pd.api.types.is_numeric_dtype(df_filtered[x_col]) and pd.api.types.is_numeric_dtype(df_filtered[y_col]):
@@ -777,25 +763,69 @@ else:
             if category and value:
                 tree_data = df_filtered.groupby(category, dropna=False)[value].sum().reset_index().sort_values(value, ascending=False).head(40)
                 fig = px.treemap(tree_data, path=[category], values=value, color=value,
-                                 color_continuous_scale=["#99f6e4", "#818cf8", "#c084fc", "#f472b6"],
+                                 color_continuous_scale=["#d8f3e5", "#83cbb1", "#2c9886", "#123d39"],
                                  title=f"{value} contribution by {category}")
             else:
                 st.info("Treemap needs a category column and a numeric value column.")
 
         if fig is not None:
+            # Consistent styling and descriptive axes for every chart type.
             fig.update_layout(
                 template="plotly_white",
-                paper_bgcolor="rgba(255,255,255,0.0)",
-                plot_bgcolor="rgba(255,255,255,0.30)",
-                font=dict(family="DM Sans, sans-serif", color="#34345f"),
-                title_font=dict(family="Manrope, sans-serif", size=19, color="#292651"),
-                margin=dict(l=18, r=18, t=65, b=25),
-                height=490,
+                paper_bgcolor="#FFFFFF",
+                plot_bgcolor="#FBFDFB",
+                font=dict(family="DM Sans, sans-serif", size=12, color="#405D56"),
+                title=dict(font=dict(family="Manrope, sans-serif", size=19, color="#183532"), x=0.02, xanchor="left"),
+                margin=dict(l=48, r=28, t=72, b=68),
+                height=500,
                 colorway=palette,
-                legend_title_font_color="#34345f",
+                legend_title_font_color="#405D56",
+                hoverlabel=dict(bgcolor="#FFFFFF", bordercolor="#B8D9CC", font=dict(color="#183532", size=12)),
             )
-            fig.update_xaxes(gridcolor="rgba(105,95,170,0.12)", zerolinecolor="rgba(105,95,170,0.12)")
-            fig.update_yaxes(gridcolor="rgba(105,95,170,0.12)", zerolinecolor="rgba(105,95,170,0.12)")
+            if chart_type == "Correlation Heatmap":
+                fig.update_xaxes(title_text="Numeric features", tickangle=-35, automargin=True)
+                fig.update_yaxes(title_text="Numeric features", automargin=True)
+            elif chart_type == "Histogram":
+                fig.update_xaxes(title_text=x_col, automargin=True, tickangle=-25 if df_filtered[x_col].nunique(dropna=True) > 12 else 0)
+                fig.update_yaxes(title_text="Number of records", automargin=True, rangemode="tozero")
+            elif chart_type == "Bar Chart":
+                if pd.api.types.is_numeric_dtype(df_filtered[x_col]) and pd.api.types.is_numeric_dtype(df_filtered[y_col]):
+                    fig.update_xaxes(title_text=x_col, automargin=True)
+                    fig.update_yaxes(title_text=f"Average {y_col}", automargin=True, rangemode="tozero")
+                elif pd.api.types.is_numeric_dtype(df_filtered[y_col]):
+                    fig.update_xaxes(title_text=x_col, automargin=True, tickangle=-30 if df_filtered[x_col].nunique(dropna=True) > 8 else 0)
+                    fig.update_yaxes(title_text=f"Average {y_col}", automargin=True, rangemode="tozero")
+                else:
+                    fig.update_xaxes(title_text=x_col, automargin=True, tickangle=-30 if df_filtered[x_col].nunique(dropna=True) > 8 else 0)
+                    fig.update_yaxes(title_text="Number of records", automargin=True, rangemode="tozero")
+            elif chart_type == "Scatter Plot":
+                fig.update_xaxes(title_text=x_col, automargin=True)
+                fig.update_yaxes(title_text=y_col, automargin=True)
+            elif chart_type == "Line Chart":
+                fig.update_xaxes(title_text=x_col, automargin=True, tickangle=-25 if not pd.api.types.is_numeric_dtype(df_filtered[x_col]) else 0)
+                fig.update_yaxes(title_text=y_col, automargin=True)
+            elif chart_type == "Box Plot":
+                x_title = x_col if not pd.api.types.is_numeric_dtype(df_filtered[x_col]) else None
+                y_title = y_col if pd.api.types.is_numeric_dtype(df_filtered[y_col]) else None
+                fig.update_xaxes(title_text=x_title, automargin=True, tickangle=-25 if x_title and df_filtered[x_col].nunique(dropna=True) > 8 else 0)
+                fig.update_yaxes(title_text=y_title, automargin=True)
+            elif chart_type == "Pie Chart":
+                fig.update_layout(margin=dict(l=20, r=20, t=72, b=25))
+            elif chart_type == "Area Chart":
+                fig.update_xaxes(title_text=x_col, automargin=True, tickangle=-25 if not pd.api.types.is_numeric_dtype(df_filtered[x_col]) else 0)
+                fig.update_yaxes(title_text=y_col, automargin=True)
+            elif chart_type == "Treemap":
+                fig.update_layout(margin=dict(l=18, r=18, t=72, b=18))
+            fig.update_xaxes(
+                gridcolor="#EEEAFB", zerolinecolor="#DDD7F5", linecolor="#D9D3F0",
+                tickfont=dict(size=10, color="#77739B"), title_font=dict(size=12, color="#39345F"),
+                automargin=True,
+            )
+            fig.update_yaxes(
+                gridcolor="#EEEAFB", zerolinecolor="#DDD7F5", linecolor="#D9D3F0",
+                tickfont=dict(size=10, color="#77739B"), title_font=dict(size=12, color="#39345F"),
+                automargin=True,
+            )
             st.plotly_chart(fig, use_container_width=True)
         elif chart_type in ["Correlation Heatmap", "Scatter Plot", "Line Chart", "Area Chart", "Treemap"]:
             pass
@@ -860,7 +890,7 @@ else:
             chosen_num = st.selectbox("Quick distribution view", numeric_df.columns.tolist(), key="quick_distribution")
             dist = px.histogram(
                 df_filtered, x=chosen_num, nbins=25, marginal="box",
-                color_discrete_sequence=["#7257e8"],
+                color_discrete_sequence=["#087f72"],
                 title=f"Distribution: {chosen_num}",
             )
             dist.update_layout(
@@ -868,19 +898,31 @@ else:
                 paper_bgcolor="rgba(255,255,255,0.0)",
                 plot_bgcolor="rgba(255,255,255,0.25)",
                 font=dict(family="DM Sans", color="#34345f"),
-                title_font_color="#292651",
-                height=360,
-                margin=dict(l=12, r=12, t=55, b=15),
+                title=dict(font=dict(family="Manrope, sans-serif", size=18, color="#183532"), x=0.02),
+                height=380,
+                margin=dict(l=45, r=20, t=62, b=58),
             )
-            dist.update_xaxes(gridcolor="rgba(105,95,170,0.12)")
-            dist.update_yaxes(gridcolor="rgba(105,95,170,0.12)")
+            dist.update_xaxes(title_text=chosen_num, gridcolor="#EEEAFB", tickfont=dict(size=10, color="#77739B"), automargin=True)
+            dist.update_yaxes(title_text="Number of records", gridcolor="#EEEAFB", tickfont=dict(size=10, color="#77739B"), automargin=True)
             st.plotly_chart(dist, use_container_width=True)
         else:
             st.info("No numeric columns are available for a distribution chart.")
 
 
 # ----------------------------- 6. EXPORT -----------------------------
-section("Export Your Analysis", "📦")
+section("Export Your Analysis", "📤")
+st.markdown(
+    """
+    <div class="action-card">
+      <div class="action-icon">📥</div>
+      <div>
+        <div class="action-title">Download your results</div>
+        <div class="action-description">Choose a format below. Files are generated from the current cleaned dataset and analysis.</div>
+      </div>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 report_text = make_report(df_original, df_cleaned, df_filtered, filename)
 cleaned_csv = df_cleaned.to_csv(index=False).encode("utf-8-sig")
 report_html = f"""<!doctype html>
@@ -894,7 +936,7 @@ h1{{color:#6955df}} pre{{white-space:pre-wrap;font-family:Consolas,monospace;lin
 export_col1, export_col2, export_col3 = st.columns(3)
 with export_col1:
     st.download_button(
-        "⬇️ Download cleaned CSV",
+        "📥  Download cleaned CSV",
         data=cleaned_csv,
         file_name="insightai_cleaned_data.csv",
         mime="text/csv",
@@ -902,7 +944,7 @@ with export_col1:
     )
 with export_col2:
     st.download_button(
-        "📄 Download text report",
+        "📝  Download text report",
         data=report_text.encode("utf-8"),
         file_name="insightai_analysis_report.txt",
         mime="text/plain",
@@ -910,7 +952,7 @@ with export_col2:
     )
 with export_col3:
     st.download_button(
-        "🌈 Download HTML report",
+        "🌐  Download HTML report",
         data=report_html.encode("utf-8"),
         file_name="insightai_analysis_report.html",
         mime="text/html",
